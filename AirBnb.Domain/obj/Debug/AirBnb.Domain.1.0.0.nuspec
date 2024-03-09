@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>AirBnb.Domain</id>
+    <version>1.0.0</version>
+    <authors>AirBnb.Domain</authors>
+    <description>Package Description</description>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net8.0">
+        <frameworkReference name="Microsoft.AspNetCore.App" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\bin\Debug\net8.0\AirBnb.Domain.dll" target="lib\net8.0\AirBnb.Domain.dll" />
+  </files>
+</package>

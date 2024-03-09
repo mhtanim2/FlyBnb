@@ -1,0 +1,11 @@
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\bin\Debug\net8.0\AirBnb.Domain.deps.json
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\bin\Debug\net8.0\AirBnb.Domain.dll
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\bin\Debug\net8.0\AirBnb.Domain.pdb
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\obj\Debug\net8.0\AirBnb.Domain.GeneratedMSBuildEditorConfig.editorconfig
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\obj\Debug\net8.0\AirBnb.Domain.AssemblyInfoInputs.cache
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\obj\Debug\net8.0\AirBnb.Domain.AssemblyInfo.cs
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\obj\Debug\net8.0\AirBnb.Domain.csproj.CoreCompileInputs.cache
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\obj\Debug\net8.0\AirBnb.Domain.dll
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\obj\Debug\net8.0\refint\AirBnb.Domain.dll
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\obj\Debug\net8.0\AirBnb.Domain.pdb
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\obj\Debug\net8.0\ref\AirBnb.Domain.dll
