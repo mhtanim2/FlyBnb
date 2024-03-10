@@ -57,6 +57,22 @@
       "PackagePath": "staticwebassets\\images\\products\\0475537c-c9c0-41dc-aa6a-60ad3e422a7a.jpg"
     },
     {
+      "Id": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\products\\0aaad535-9f3f-4936-8f84-ad6437b0714a.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\0aaad535-9f3f-4936-8f84-ad6437b0714a.jpg"
+    },
+    {
+      "Id": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\products\\51222bae-4507-4b64-9300-16f21be23fcd.jpeg",
+      "PackagePath": "staticwebassets\\images\\products\\51222bae-4507-4b64-9300-16f21be23fcd.jpeg"
+    },
+    {
+      "Id": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\products\\62113db4-e35a-4abc-bae7-6c47215df412.jpeg",
+      "PackagePath": "staticwebassets\\images\\products\\62113db4-e35a-4abc-bae7-6c47215df412.jpeg"
+    },
+    {
+      "Id": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\products\\9c4c214f-af8a-4cbb-9cb1-2bfb10adc561.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\9c4c214f-af8a-4cbb-9cb1-2bfb10adc561.jpg"
+    },
+    {
       "Id": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\products\\9fc6596e-0f30-4464-9676-a4c836682e07.png",
       "PackagePath": "staticwebassets\\images\\products\\9fc6596e-0f30-4464-9676-a4c836682e07.png"
     },
@@ -71,6 +87,10 @@
     {
       "Id": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\products\\fd5e5f02-5ea7-4863-88fe-554f026a0ed2.png",
       "PackagePath": "staticwebassets\\images\\products\\fd5e5f02-5ea7-4863-88fe-554f026a0ed2.png"
+    },
+    {
+      "Id": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\products\\fdd73b69-24bd-46a9-b8df-37b60f5a140f.jpeg",
+      "PackagePath": "staticwebassets\\images\\products\\fdd73b69-24bd-46a9-b8df-37b60f5a140f.jpeg"
     },
     {
       "Id": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\slide1.jpg",

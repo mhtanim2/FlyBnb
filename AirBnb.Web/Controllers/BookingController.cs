@@ -288,6 +288,7 @@ namespace AirBnb.Web.Controllers
         {
             Booking bookingFromDb = _unitOfWork.BookingRepo.
                 Get(u => u.Id == bookingId, includeProperties: $"{SD.User},{SD.Villa}");
+            var path=bookingFromDb.Villa.ImageUrl;
             if (bookingFromDb.Status == SD.StatusPending) 
             {
                 var service = new SessionService();
@@ -300,7 +301,7 @@ namespace AirBnb.Web.Controllers
                 }
             }
 
-            return View(bookingId);
+            return View(bookingFromDb);
         }
 
         [HttpPost]

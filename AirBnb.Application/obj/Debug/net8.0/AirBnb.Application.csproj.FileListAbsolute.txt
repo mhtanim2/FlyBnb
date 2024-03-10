@@ -13,3 +13,4 @@ G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Application\bin\Debug\net8.0\AirBnb.
 G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Application\bin\Debug\net8.0\AirBnb.Domain.pdb
 G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Application\obj\Debug\net8.0\AirBnb.Application.csproj.AssemblyReference.cache
 G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Application\obj\Debug\net8.0\AirBnb.A.B181C1D6.Up2Date
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Application\obj\Debug\net8.0\AirBnb.Application.sourcelink.json

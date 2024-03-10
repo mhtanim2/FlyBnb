@@ -17,3 +17,4 @@ G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Infrastructure\bin\Debug\net8.0\AirB
 G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Infrastructure\bin\Debug\net8.0\AirBnb.Application.pdb
 G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Infrastructure\bin\Debug\net8.0\AirBnb.Domain.pdb
 G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Infrastructure\obj\Debug\net8.0\AirBnb.I.5AFB7EB1.Up2Date
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Infrastructure\obj\Debug\net8.0\AirBnb.Infrastructure.sourcelink.json

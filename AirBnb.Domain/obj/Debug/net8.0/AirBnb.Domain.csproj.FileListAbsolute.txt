@@ -9,3 +9,4 @@ G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\obj\Debug\net8.0\AirBnb.Domai
 G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\obj\Debug\net8.0\refint\AirBnb.Domain.dll
 G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\obj\Debug\net8.0\AirBnb.Domain.pdb
 G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\obj\Debug\net8.0\ref\AirBnb.Domain.dll
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Domain\obj\Debug\net8.0\AirBnb.Domain.sourcelink.json
