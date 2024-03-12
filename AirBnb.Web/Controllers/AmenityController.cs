@@ -1,5 +1,7 @@
 ﻿using AirBnb.Application.Common.Interfaces;
 using AirBnb.Application.Common.Utility;
+using AirBnb.Application.Server.Interface;
+using AirBnb.Application.Services.Interface;
 using AirBnb.Domain.Entities;
 using AirBnb.Web.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -11,22 +13,26 @@ namespace AirBnb.Web.Controllers
     [Authorize(Roles = SD.Role_Admin)]
     public class AmenityController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
-        public AmenityController(IUnitOfWork unitOfWork)
+        private readonly IAmenityService _amenityService;
+        private readonly IVillaService _villaService;
+
+        public AmenityController(IAmenityService amenityService,IVillaService villaService)
         {
-            _unitOfWork = unitOfWork;
+            _amenityService = amenityService;
+            _villaService = villaService;
         }
         public IActionResult Index()
         {
-            List<Amenity> AmenityList = _unitOfWork.AmenityRepo.GetAll(includeProperties: SD.Villa).ToList();
-            return View(AmenityList);
+            
+            IEnumerable<Amenity> villaAmenities = _amenityService.GetAllAmenities();
+            return View(villaAmenities);
         }
         public IActionResult Create()
         {
 
             AmenityVM AmenityVM = new()
             {
-                VillaList = _unitOfWork.VillaRepo.GetAll().ToList().Select(u => new SelectListItem
+                VillaList = _villaService.GetAllVillas().Select(u => new SelectListItem
                 {
                     Text = u.Name,
                     Value = u.Id.ToString()
@@ -36,83 +42,88 @@ namespace AirBnb.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(AmenityVM AmenityVM)
+        public IActionResult Create(AmenityVM obj)
         {
-            //Remove some validations
-            ModelState.Remove("Amenity.Villa");
-
-
             if (ModelState.IsValid)
             {
-                _unitOfWork.AmenityRepo.Add(AmenityVM.Amenity);
-                _unitOfWork.Save();
-                TempData["success"] = "Amenity created Successfully";
+                _amenityService.CreateAmenity(obj.Amenity);
+                TempData["success"] = "The amenity has been created successfully.";
                 return RedirectToAction(nameof(Index));
             }
-            return View(AmenityVM);
+
+            obj.VillaList = _villaService.GetAllVillas().Select(u => new SelectListItem
+            {
+                Text = u.Name,
+                Value = u.Id.ToString()
+            });
+            return View(obj);
         }
 
         public IActionResult Update(int amenityId)
         {
-            AmenityVM AmenityVM = new()
+            AmenityVM amenityVM = new()
             {
-                VillaList = _unitOfWork.VillaRepo.GetAll().ToList().Select(u => new SelectListItem
+                VillaList = _villaService.GetAllVillas().Select(u => new SelectListItem
                 {
                     Text = u.Name,
                     Value = u.Id.ToString()
                 }),
-                Amenity = _unitOfWork.AmenityRepo.Get(u => u.Id == amenityId)
+                Amenity = _amenityService.GetAmenityById(amenityId)
             };
-            if (AmenityVM.Amenity == null)
+            if (amenityVM.Amenity == null)
             {
                 return RedirectToAction("error", "home");
             }
-            return View(AmenityVM);
+            return View(amenityVM);
         }
 
         [HttpPost]
-        public IActionResult Update(AmenityVM AmenityVM)
+        public IActionResult Update(AmenityVM amenityVM)
         {
-            ModelState.Remove("Amenity.Villa");
             if (ModelState.IsValid)
             {
-                _unitOfWork.AmenityRepo.Update(AmenityVM.Amenity);
-                _unitOfWork.Save();
+                _amenityService.UpdateAmenity(amenityVM.Amenity);
                 TempData["success"] = "Amenity updated Successfully";
                 return RedirectToAction(nameof(Index));
             }
-            return View(AmenityVM);
+            amenityVM.VillaList=_villaService.GetAllVillas().Select(u=>new SelectListItem 
+            {
+                Text = u.Name,
+                Value = u.Id.ToString()
+            });
+            return View(amenityVM);
         }
 
         public IActionResult Delete(int amenityId)
         {
-            AmenityVM AmenityVM = new()
+            AmenityVM amenityVM = new()
             {
-                VillaList = _unitOfWork.VillaRepo.GetAll().ToList().Select(u => new SelectListItem
+                VillaList = _villaService.GetAllVillas().Select(u => new SelectListItem
                 {
                     Text = u.Name,
                     Value = u.Id.ToString()
                 }),
-                Amenity = _unitOfWork.AmenityRepo.Get(u => u.Id == amenityId)
+                Amenity = _amenityService.GetAmenityById(amenityId)
             };
-            if (AmenityVM.Amenity == null)
+            if (amenityVM.Amenity == null)
             {
-                return RedirectToAction("error", "home");
+                return RedirectToAction("Error", "Home");
             }
-            return View(AmenityVM);
+            return View(amenityVM);
         }
 
         [HttpPost]
         public IActionResult Delete(AmenityVM AmenityVM)
         {
-            Amenity? objFromDb = _unitOfWork.AmenityRepo.Get(x => x.Id == AmenityVM.Amenity.Id);
+            Amenity? objFromDb = _amenityService.GetAmenityById(AmenityVM.Amenity.Id);
             if (objFromDb != null)
             {
-                _unitOfWork.AmenityRepo.Delete(objFromDb);
-                _unitOfWork.Save();
+                _amenityService.DeleteAmenity(objFromDb.VillaId);
                 TempData["success"] = "Amenity Deleted Successfully";
                 return RedirectToAction(nameof(Index));
             }
+
+            TempData["error"] = "Amenity Deleted unsuccessful";
             return View(AmenityVM);
         }
     }

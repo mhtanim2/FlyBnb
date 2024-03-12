@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lo70yGDA/s5DHsdDpSEXFKCqa+QWWkL8G+KY393W+9w=",
+  "Hash": "HzV+KZvLuP+t6bhXASMerzNF+Q/oMr+d9GI68XnqU0Q=",
   "Source": "AirBnb.Web",
   "BasePath": "_content/AirBnb.Web",
   "Mode": "Default",
@@ -357,6 +357,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\62113db4-e35a-4abc-bae7-6c47215df412.jpeg"
+    },
+    {
+      "Identity": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\products\\92185de2-c726-4017-9ad0-d289d82a846f.jpeg",
+      "SourceId": "AirBnb.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\",
+      "BasePath": "_content/AirBnb.Web",
+      "RelativePath": "images/products/92185de2-c726-4017-9ad0-d289d82a846f.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\92185de2-c726-4017-9ad0-d289d82a846f.jpeg"
     },
     {
       "Identity": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\products\\9c4c214f-af8a-4cbb-9cb1-2bfb10adc561.jpg",
