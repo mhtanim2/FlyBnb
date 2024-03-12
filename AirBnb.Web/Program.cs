@@ -1,6 +1,4 @@
 using AirBnb.Application.Common.Interfaces;
-using AirBnb.Application.Services.Implementation;
-using AirBnb.Application.Services.Interface;
 using AirBnb.Domain.Entities;
 using AirBnb.Infrastructure.Data;
 using AirBnb.Infrastructure.Repository;
@@ -25,8 +23,6 @@ SyncfusionLicenseProvider.RegisterLicense(builder.Configuration.GetSection("Sync
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
-builder.Services.AddScoped<IVillaService, VillaService>();
-builder.Services.AddScoped<IVillaNumberService, VillaNumberService>();
 
 var app = builder.Build();
 
