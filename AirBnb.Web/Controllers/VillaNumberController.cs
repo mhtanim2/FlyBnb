@@ -1,5 +1,6 @@
 ﻿using AirBnb.Application.Common.Interfaces;
 using AirBnb.Application.Common.Utility;
+using AirBnb.Application.Services.Interface;
 using AirBnb.Domain.Entities;
 using AirBnb.Infrastructure.Data;
 using AirBnb.Web.ViewModels;
@@ -13,22 +14,25 @@ namespace AirBnb.Web.Controllers
     [Authorize]
     public class VillaNumberController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IVillaService _villaService;
+        private readonly IVillaNumberService _villaNumberService;
 
-        public VillaNumberController(IUnitOfWork unitOfWork)
+        public VillaNumberController(IVillaService villaService,
+            IVillaNumberService villaNumberService)
         {
-            _unitOfWork = unitOfWork;
+            _villaService = villaService;
+            _villaNumberService = villaNumberService;
         }
         public IActionResult Index()
         {
-            IEnumerable<VillaNumber> villaNumbers= _unitOfWork.VillaNumberRepo.GetAll(includeProperties:SD.Villa).ToList();
+            IEnumerable<VillaNumber> villaNumbers = _villaNumberService.GetAllVillaNumbers();
             return View(villaNumbers);
         }
-
-        public IActionResult Create() {
+        public IActionResult Create()
+        {
             VillaNumberVM villaNumberVM = new()
             {
-                VillaList = _unitOfWork.VillaRepo.GetAll().Select(u => new SelectListItem
+                VillaList = _villaService.GetAllVillas().Select(u => new SelectListItem
                 {
                     Text = u.Name,
                     Value = u.Id.ToString()
@@ -37,13 +41,14 @@ namespace AirBnb.Web.Controllers
             return View(villaNumberVM);
         }
         [HttpPost]
-        public IActionResult Create(VillaNumberVM obj) {
-            bool isRoomNoExist = _unitOfWork.VillaNumberRepo.Any(u => u.Villa_Number == obj.VillaNumber.Villa_Number);
-                
+        public IActionResult Create(VillaNumberVM obj)
+        {
+            bool isRoomNoExist = _villaNumberService.CheckVillaNumberExist(obj.VillaNumber.Villa_Number);
+
             if (ModelState.IsValid && !isRoomNoExist)
             {
-                _unitOfWork.VillaNumberRepo.Add(obj.VillaNumber);
-                _unitOfWork.Save();
+                _villaNumberService.CreateVillaNumber(obj.VillaNumber);
+
                 TempData["success"] = "Villa Number Added Successfully";
                 return RedirectToAction(nameof(Index));
             }
@@ -53,28 +58,29 @@ namespace AirBnb.Web.Controllers
                 /*return RedirectToAction("Index");*/
             }
 
-            obj.VillaList = _unitOfWork.VillaRepo.GetAll().Select(u=>new SelectListItem { 
+            obj.VillaList = _villaService.GetAllVillas().Select(u => new SelectListItem
+            {
                 Text = u.Name,
                 Value = u.Id.ToString()
             });
             return View(obj);
         }
-        
+
         public IActionResult Update(int villaNumberId)
         {
             VillaNumberVM villaNumberVM = new()
             {
-                VillaList = _unitOfWork.VillaRepo.GetAll().Select(u => new SelectListItem
+                VillaList = _villaService.GetAllVillas().Select(u => new SelectListItem
                 {
                     Text = u.Name,
                     Value = u.Id.ToString()
                 }),
-                VillaNumber=_unitOfWork.VillaNumberRepo.Get(x=>x.Villa_Number == villaNumberId)
+                VillaNumber = _villaNumberService.GetVillaNumberById(villaNumberId)
             };
 
             if (villaNumberVM == null)
             {
-                return RedirectToAction("Error","Home");
+                return RedirectToAction("Error", "Home");
             }
             return View(villaNumberVM);
         }
@@ -83,13 +89,12 @@ namespace AirBnb.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.VillaNumberRepo.Update(obj.VillaNumber);
-                _unitOfWork.Save();
+                _villaNumberService.UpdateVillaNumber(obj.VillaNumber);
                 TempData["success"] = "The Villa Number Has been Updated Successfully";
                 return RedirectToAction(nameof(Index));
             }
 
-            obj.VillaList = _unitOfWork.VillaRepo.GetAll().Select(u => new SelectListItem
+            obj.VillaList = _villaService.GetAllVillas().Select(u => new SelectListItem
             {
                 Text = u.Name,
                 Value = u.Id.ToString()
@@ -101,12 +106,12 @@ namespace AirBnb.Web.Controllers
         {
             VillaNumberVM villaNumberVM = new()
             {
-                VillaList = _unitOfWork.VillaRepo.GetAll().Select(u => new SelectListItem
+                VillaList = _villaService.GetAllVillas().Select(u => new SelectListItem
                 {
                     Text = u.Name,
                     Value = u.Id.ToString()
                 }),
-                VillaNumber = _unitOfWork.VillaNumberRepo.Get(x => x.Villa_Number == villaNumberId)
+                VillaNumber = _villaNumberService.GetVillaNumberById(villaNumberId)
             };
 
             if (villaNumberVM == null)
@@ -118,11 +123,11 @@ namespace AirBnb.Web.Controllers
         [HttpPost]
         public IActionResult Delete(VillaNumberVM obj)
         {
-            VillaNumber? objVilla = _unitOfWork.VillaNumberRepo.Get(x => x.Villa_Number ==obj.VillaNumber.Villa_Number);
+            VillaNumber? objVilla = _villaNumberService.GetVillaNumberById(obj.VillaNumber.Villa_Number);
             if (objVilla is not null)
             {
-                _unitOfWork.VillaNumberRepo.Delete(objVilla);
-                _unitOfWork.Save();
+                _villaNumberService.DeleteVillaNumber(objVilla.Villa_Number);
+
                 TempData["success"] = "Villa Deleted successfully";
                 return RedirectToAction(nameof(Index));
             }

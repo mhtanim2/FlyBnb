@@ -1,5 +1,6 @@
 using AirBnb.Application.Common.Interfaces;
 using AirBnb.Application.Common.Utility;
+using AirBnb.Application.Services.Interface;
 using AirBnb.Web.Models;
 using AirBnb.Web.ViewModels;
 using Microsoft.AspNetCore.Hosting;
@@ -13,19 +14,19 @@ namespace AirBnb.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IVillaService _villaService;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public HomeController(IUnitOfWork unitOfWork,IWebHostEnvironment webHostEnvironment)
+        public HomeController(IVillaService villaService,IWebHostEnvironment webHostEnvironment)
         {
-            _unitOfWork= unitOfWork;
+            _villaService = villaService;
             _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
         {
             HomeVM homeVM = new HomeVM() {
-                VillaList = _unitOfWork.VillaRepo.GetAll(includeProperties: SD.VillaAmenity).ToList(),
+                VillaList = _villaService.GetAllVillas(),
                 CheckInDate = DateOnly.FromDateTime(DateTime.Now),
                 Nights = 1
             };
@@ -35,28 +36,19 @@ namespace AirBnb.Web.Controllers
         public IActionResult GetVillasByDate(int nights, DateOnly checkInDate)
         {
             Thread.Sleep(400);
-            var villaList = _unitOfWork.VillaRepo.GetAll(includeProperties: SD.VillaAmenity).ToList();
-            var villaNumbersList = _unitOfWork.VillaNumberRepo.GetAll().ToList();
-            var bookedVillas = _unitOfWork.BookingRepo.GetAll(u => u.Status == SD.StatusApproved ||
-            u.Status == SD.StatusCheckedIn).ToList();
-
-            foreach (var villa in villaList)
-            {
-                int roomsAvailable = SD.VillaRoomsAvailable_Count(villa, villaNumbersList, checkInDate, nights, bookedVillas);
-                villa.IsAvailable = roomsAvailable > 0 ? true : false;
-            }
             HomeVM homeVM = new()
             {
                 CheckInDate = checkInDate,
-                VillaList = villaList,
+                VillaList = _villaService.GetVillaAvailabilityByDate(nights,checkInDate),
                 Nights = nights
             };
             return PartialView("_VillaList", homeVM);
         }
+
         [HttpPost]
         public IActionResult GeneratePPT(int id)
         {
-            var villa = _unitOfWork.VillaRepo.GetAll(includeProperties: "VillaAmenity").FirstOrDefault(x => x.Id == id);
+            var villa = _villaService.GetVillaById(id);
 
             string basePath = _webHostEnvironment.WebRootPath;
             string dataPath = basePath + @"/Exports/ExportVillaDetails.pptx";
@@ -161,6 +153,7 @@ namespace AirBnb.Web.Controllers
                 return File(memoryStream, "application/pptx", "villa.pptx");
             }
         }
+        
         private IShape FindShapeByName(ISlide slide, string shapeName)
         {
             foreach (IShape shape in slide.Shapes)
@@ -208,6 +201,7 @@ namespace AirBnb.Web.Controllers
 
             return null; // Shape with the specified name not found
         }
+        
         public IActionResult Privacy()
         {
             return View();
