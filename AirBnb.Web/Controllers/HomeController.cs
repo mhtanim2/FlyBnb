@@ -32,6 +32,7 @@ namespace AirBnb.Web.Controllers
             };
             return View(homeVM);
         }
+
         [HttpPost]
         public IActionResult GetVillasByDate(int nights, DateOnly checkInDate)
         {
@@ -44,7 +45,6 @@ namespace AirBnb.Web.Controllers
             };
             return PartialView("_VillaList", homeVM);
         }
-
         [HttpPost]
         public IActionResult GeneratePPT(int id)
         {

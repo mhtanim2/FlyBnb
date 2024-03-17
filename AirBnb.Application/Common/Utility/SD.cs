@@ -48,7 +48,6 @@ namespace AirBnb.Application.Common.Utility
                         bookingInDate.Add(booking.Id);
                     }
                 }
-
                 var totalAvailableRooms = roomsInVilla.Count() - bookingInDate.Count;
                 if (totalAvailableRooms == 0)
                 {
@@ -63,8 +62,6 @@ namespace AirBnb.Application.Common.Utility
                 }
             }
             return finalAvailableRoomForAllNights;
-
         }
-
     }
 }

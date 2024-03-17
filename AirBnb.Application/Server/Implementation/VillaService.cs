@@ -71,6 +71,21 @@ namespace AirBnb.Application.Services.Implementation
             _unitOfWork.Save();
         }
 
+        public IEnumerable<Villa> GetVillaAvailabilityByDate(int nights, DateOnly checkInDate)
+        {
+            var villaList = _unitOfWork.VillaRepo.GetAll(includeProperties: SD.VillaAmenity).ToList();
+            var villaNumbersList = _unitOfWork.VillaNumberRepo.GetAll().ToList();
+            var bookedVillas = _unitOfWork.BookingRepo.GetAll(u => u.Status == SD.StatusApproved ||
+            u.Status == SD.StatusCheckedIn).ToList();
+
+            foreach (var villa in villaList)
+            {
+                int roomsAvailable = SD.VillaRoomsAvailable_Count(villa, villaNumbersList, checkInDate, nights, bookedVillas);
+                villa.IsAvailable = roomsAvailable > 0 ? true : false;
+            }
+            return villaList;
+        }
+
         //Private class
         private void HandleImage(Villa villa)
         {
@@ -117,19 +132,5 @@ namespace AirBnb.Application.Services.Implementation
             return @"\images\products\" + fileName;
         }
 
-        public IEnumerable<Villa> GetVillaAvailabilityByDate(int nights, DateOnly checkInDate)
-        {
-            var villaList = _unitOfWork.VillaRepo.GetAll(includeProperties: SD.VillaAmenity).ToList();
-            var villaNumbersList = _unitOfWork.VillaNumberRepo.GetAll().ToList();
-            var bookedVillas = _unitOfWork.BookingRepo.GetAll(u => u.Status == SD.StatusApproved ||
-            u.Status == SD.StatusCheckedIn).ToList();
-
-            foreach (var villa in villaList)
-            {
-                int roomsAvailable = SD.VillaRoomsAvailable_Count(villa, villaNumbersList, checkInDate, nights, bookedVillas);
-                villa.IsAvailable = roomsAvailable > 0 ? true : false;
-            }
-            return villaList;
-        }
     }
 }
