@@ -14,12 +14,12 @@ function loadDataTable(status) {
         "ajax": { url: '/booking/getall?status=' + status },
         "columns": [
             { data: 'id', "width": "5%" },
-            { data: 'name', "width": "15%" },
+            { data: 'user.name', "width": "15%" },
             { data: 'phone', "width": "10%" },
             { data: 'email', "width": "15%" },
-            { data: 'status', "width": "10%" },
-            { data: 'checkInDate', "width": "10%" },
-            { data: 'nights', "width": "10%" },
+            { data: 'status', "width": "5%" },
+            { data: 'checkInDate', "width": "7%" },
+            { data: 'nights', "width": "5%" },
             { data: 'totalCost', render: $.fn.dataTable.render.number(',', '.', 2), "width": "10%" },
             {
                 data: 'id',

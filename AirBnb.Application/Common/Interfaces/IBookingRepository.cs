@@ -11,7 +11,7 @@ namespace AirBnb.Application.Common.Interfaces
     {
         void Update(Booking entity);
         //Paymet status
-        void UpdateStripePaymentID(int id, string sessionId, string paymentIntentId);
-        void UpdateStatus(int bookingId, string orderStatus, int villaNumber);
+/*        void UpdateStripePaymentID(int id, string sessionId, string paymentIntentId);
+        void UpdateStatus(int bookingId, string orderStatus, int villaNumber);*/
     }
 }

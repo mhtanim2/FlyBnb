@@ -1248,7 +1248,8 @@
       },
       "AirBnb.Application/1.0.0": {
         "dependencies": {
-          "AirBnb.Domain": "1.0.0"
+          "AirBnb.Domain": "1.0.0",
+          "Stripe.net": "43.18.0"
         },
         "runtime": {
           "AirBnb.Application.dll": {}

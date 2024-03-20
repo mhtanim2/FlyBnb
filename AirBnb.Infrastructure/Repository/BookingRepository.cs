@@ -22,7 +22,7 @@ namespace AirBnb.Infrastructure.Repository
         {
             _context.Bookings.Update(entity);
         }
-
+/*
         public void UpdateStatus(int bookingId, string orderStatus, int villaNumber = 0)
         {
             var orderFromDb = _context.Bookings.FirstOrDefault(u => u.Id == bookingId);
@@ -57,6 +57,6 @@ namespace AirBnb.Infrastructure.Repository
                     bookingFromDb.PaymentDate = DateTime.Now;
                     bookingFromDb.IsPaymentSuccessful = true;
                 }
-        }
+        }*/
     }
 }

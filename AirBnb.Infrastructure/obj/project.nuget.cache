@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "L7q7cDQZYW9gGSA5VLG1nDU8c5atUwaBCz1R6GtHA27TRAHt0RGZpLU0CFC++kp4fR9P0TdLL01o3TwTQoPwWw==",
+  "dgSpecHash": "sVR/SNuUc5Q9dj5gbOKL9n4lDM269qknTNQMYNq8IXjHrR1HIefyw/BugNebCuKM/pZAjHZkUnJrD80T1mtMwg==",
   "success": true,
   "projectFilePath": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Infrastructure\\AirBnb.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -51,6 +51,8 @@
     "C:\\Users\\mhtan\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\mhtan\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\mhtan\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\mhtan\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\mhtan\\.nuget\\packages\\stripe.net\\43.18.0\\stripe.net.43.18.0.nupkg.sha512",
     "C:\\Users\\mhtan\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\mhtan\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\mhtan\\.nuget\\packages\\system.composition\\6.0.0\\system.composition.6.0.0.nupkg.sha512",

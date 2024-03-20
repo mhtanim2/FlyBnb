@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "xbkouL6BygQbv6EZ6s466JqwBfm2n4yi8UMpxoYkOJ4SFpWySsOqdRgVo3EOPqaZoYvYlHlnkqn8KFwHBWuwpQ==",
+  "dgSpecHash": "a4un/1AzdNiKH3NBGBsDMi5pS4MQn/8HlBsWq7WArBzK1crxQy232qrCmfkVoQ/tFW8TFBVsSUkRPs34qMDGZg==",
   "success": true,
   "projectFilePath": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Application\\AirBnb.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\mhtan\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\mhtan\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\mhtan\\.nuget\\packages\\stripe.net\\43.18.0\\stripe.net.43.18.0.nupkg.sha512",
+    "C:\\Users\\mhtan\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.0\\system.configuration.configurationmanager.6.0.0.nupkg.sha512",
+    "C:\\Users\\mhtan\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\mhtan\\.nuget\\packages\\system.security.accesscontrol\\6.0.0\\system.security.accesscontrol.6.0.0.nupkg.sha512",
+    "C:\\Users\\mhtan\\.nuget\\packages\\system.security.cryptography.protecteddata\\6.0.0\\system.security.cryptography.protecteddata.6.0.0.nupkg.sha512",
+    "C:\\Users\\mhtan\\.nuget\\packages\\system.security.permissions\\6.0.0\\system.security.permissions.6.0.0.nupkg.sha512",
+    "C:\\Users\\mhtan\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

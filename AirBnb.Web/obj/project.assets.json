@@ -1917,7 +1917,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "AirBnb.Domain": "1.0.0"
+          "AirBnb.Domain": "1.0.0",
+          "Stripe.net": "43.18.0"
         },
         "compile": {
           "bin/placeholder/AirBnb.Application.dll": {}

@@ -9,7 +9,7 @@ namespace AirBnb.Application.Common.Utility
 {
     public static class SD
     {
-        public const string Role_Customer="Customer";
+        public const string Role_Customer = "Customer";
         public const string Role_Admin = "Admin";
 
         public const string VillaAmenity = "VillaAmenity";
@@ -27,28 +27,28 @@ namespace AirBnb.Application.Common.Utility
 
         public static char[] stringSplit = new char[] { ',' };
 
-        public static int VillaRoomsAvailable_Count(Villa villa, List<VillaNumber> villaNumberList, DateOnly checkInDate, int nights,
-            List<Booking> bookings)
-
+        public static int VillaRoomsAvailable_Count(int villaId,
+            List<VillaNumber> villaNumberList, DateOnly checkInDate, int nights,
+           List<Booking> bookings)
         {
             List<int> bookingInDate = new();
             int finalAvailableRoomForAllNights = int.MaxValue;
-            var roomsInVilla = villaNumberList.Where(m => m.VillaId == villa.Id);
+            var roomsInVilla = villaNumberList.Where(x => x.VillaId == villaId).Count();
+
             for (int i = 0; i < nights; i++)
             {
-                //we need to ignore checkout date because at the time room will be available
-                var villasBooked = bookings.Where(m => m.CheckInDate <= checkInDate.AddDays(i) && m.CheckOutDate > checkInDate.AddDays(i) &&
-                                      m.VillaId == villa.Id).ToList();
+                var villasBooked = bookings.Where(u => u.CheckInDate <= checkInDate.AddDays(i)
+                && u.CheckOutDate > checkInDate.AddDays(i) && u.VillaId == villaId);
 
                 foreach (var booking in villasBooked)
                 {
                     if (!bookingInDate.Contains(booking.Id))
                     {
-                        //we will add booking Id that needs a room in this date range
                         bookingInDate.Add(booking.Id);
                     }
                 }
-                var totalAvailableRooms = roomsInVilla.Count() - bookingInDate.Count;
+
+                var totalAvailableRooms = roomsInVilla - bookingInDate.Count;
                 if (totalAvailableRooms == 0)
                 {
                     return 0;
@@ -61,6 +61,7 @@ namespace AirBnb.Application.Common.Utility
                     }
                 }
             }
+
             return finalAvailableRoomForAllNights;
         }
     }

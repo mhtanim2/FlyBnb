@@ -80,7 +80,7 @@ namespace AirBnb.Application.Services.Implementation
 
             foreach (var villa in villaList)
             {
-                int roomsAvailable = SD.VillaRoomsAvailable_Count(villa, villaNumbersList, checkInDate, nights, bookedVillas);
+                int roomsAvailable = SD.VillaRoomsAvailable_Count(villa.Id, villaNumbersList, checkInDate, nights, bookedVillas);
                 villa.IsAvailable = roomsAvailable > 0 ? true : false;
             }
             return villaList;
@@ -132,5 +132,16 @@ namespace AirBnb.Application.Services.Implementation
             return @"\images\products\" + fileName;
         }
 
+        public bool IsVillaAvailableByDate(int villaId, int nights, DateOnly checkInDate)
+        {
+            var villaNumbersList = _unitOfWork.VillaNumberRepo.GetAll().ToList();
+            var bookedVillas = _unitOfWork.BookingRepo.GetAll(u => u.Status == SD.StatusApproved ||
+            u.Status == SD.StatusCheckedIn).ToList();
+
+            int roomAvailable = SD.VillaRoomsAvailable_Count(villaId, villaNumbersList, checkInDate, nights, bookedVillas);
+
+            return roomAvailable > 0;
+        }
+    
     }
 }

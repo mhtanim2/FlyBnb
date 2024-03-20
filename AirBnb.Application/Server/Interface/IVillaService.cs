@@ -16,5 +16,6 @@ namespace AirBnb.Application.Services.Interface
         bool DeleteVilla(int id);
 
         IEnumerable<Villa> GetVillaAvailabilityByDate(int nights, DateOnly checkInDate);
+        bool IsVillaAvailableByDate(int villaId, int nights, DateOnly checkInDate);
     }
 }
