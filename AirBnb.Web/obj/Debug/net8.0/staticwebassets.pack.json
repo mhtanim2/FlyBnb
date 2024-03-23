@@ -37,6 +37,14 @@
       "PackagePath": "staticwebassets\\images\\Airbnbb.png"
     },
     {
+      "Id": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\FlyBNB_DFD1.jpeg",
+      "PackagePath": "staticwebassets\\images\\FlyBNB_DFD1.jpeg"
+    },
+    {
+      "Id": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\FlyBnb_DFD0.jpeg",
+      "PackagePath": "staticwebassets\\images\\FlyBnb_DFD0.jpeg"
+    },
+    {
       "Id": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\accessDenied.jpg",
       "PackagePath": "staticwebassets\\images\\accessDenied.jpg"
     },
@@ -91,6 +99,10 @@
     {
       "Id": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\products\\bfa95803-fb89-4640-9904-386949e2073b.jpg",
       "PackagePath": "staticwebassets\\images\\products\\bfa95803-fb89-4640-9904-386949e2073b.jpg"
+    },
+    {
+      "Id": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\products\\d8afe77e-16e9-4fe0-ba85-9aec1a44295a.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\d8afe77e-16e9-4fe0-ba85-9aec1a44295a.jpg"
     },
     {
       "Id": "G:\\BackEnd\\CleanArchintecture\\AirBnb\\AirBnb.Web\\wwwroot\\images\\products\\df93223c-8d43-4bf5-a766-2aa3f4741102.jpeg",

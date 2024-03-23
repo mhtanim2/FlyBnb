@@ -193,3 +193,12 @@ G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Web\bin\Debug\net8.0\runtimes\win-x6
 G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Web\bin\Debug\net8.0\runtimes\win-x86\native\libSkiaSharp.dll
 G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Web\bin\Debug\net8.0\Syncfusion.Presentation.Portable.dll
 G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Web\obj\Debug\net8.0\AirBnb.Web.sourcelink.json
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Web\bin\Debug\net8.0\Serilog.dll
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Web\bin\Debug\net8.0\Serilog.AspNetCore.dll
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Web\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Web\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Web\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Web\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Web\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Web\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+G:\BackEnd\CleanArchintecture\AirBnb\AirBnb.Web\bin\Debug\net8.0\Serilog.Sinks.File.dll

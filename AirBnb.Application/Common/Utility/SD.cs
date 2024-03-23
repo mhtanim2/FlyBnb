@@ -16,7 +16,6 @@ namespace AirBnb.Application.Common.Utility
         public const string Villa = "Villa";
         public const string User = "User";
 
-
         // Status
         public const string StatusPending = "Pending";
         public const string StatusApproved = "Approved";
@@ -31,14 +30,15 @@ namespace AirBnb.Application.Common.Utility
             List<VillaNumber> villaNumberList, DateOnly checkInDate, int nights,
            List<Booking> bookings)
         {
-            List<int> bookingInDate = new();
+
+            List<int> bookingInDate = new(); 
             int finalAvailableRoomForAllNights = int.MaxValue;
-            var roomsInVilla = villaNumberList.Where(x => x.VillaId == villaId).Count();
+
+            int roomsInVilla = CountRoomsInVilla(villaId,villaNumberList);
 
             for (int i = 0; i < nights; i++)
             {
-                var villasBooked = bookings.Where(u => u.CheckInDate <= checkInDate.AddDays(i)
-                && u.CheckOutDate > checkInDate.AddDays(i) && u.VillaId == villaId);
+                var villasBooked = GetBookedVillasOnCheckIn(villaId,checkInDate,bookings,i);
 
                 foreach (var booking in villasBooked)
                 {
@@ -64,5 +64,18 @@ namespace AirBnb.Application.Common.Utility
 
             return finalAvailableRoomForAllNights;
         }
+
+
+        private static int CountRoomsInVilla(int villaId, List<VillaNumber> villaNumberList)
+        {
+            return villaNumberList.Count(x => x.VillaId == villaId);
+        }
+
+        private static IEnumerable<Booking> GetBookedVillasOnCheckIn(int villaId, DateOnly checkInDate, List<Booking> bookings,int i)
+        {
+            return bookings.Where(u => u.CheckInDate <= checkInDate.AddDays(i)
+                && u.CheckOutDate > checkInDate.AddDays(i) && u.VillaId == villaId && u.Status!=StatusPending);
+        }
+
     }
 }

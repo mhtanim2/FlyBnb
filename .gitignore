@@ -1,4 +1,5 @@
 # Exclude appsettings
 AirBnb.Web/appsettings.json
 AirBnb.Web/appsettings.Development.json
+AirBnb.Web/Logs
 .vs/

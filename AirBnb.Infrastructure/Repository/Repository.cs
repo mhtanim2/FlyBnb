@@ -21,6 +21,7 @@ namespace AirBnb.Infrastructure.Repository
             _context = context;
             dbSet=_context.Set<T>();
         }
+        
         public void Add(T entity)
         {
             dbSet.Add(entity);
