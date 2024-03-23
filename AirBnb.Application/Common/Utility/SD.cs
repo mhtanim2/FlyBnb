@@ -76,6 +76,5 @@ namespace AirBnb.Application.Common.Utility
             return bookings.Where(u => u.CheckInDate <= checkInDate.AddDays(i)
                 && u.CheckOutDate > checkInDate.AddDays(i) && u.VillaId == villaId && u.Status!=StatusPending);
         }
-
     }
 }

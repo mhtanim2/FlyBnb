@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AirBnb.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b866f4473a2de3ab4ce12becff5fe0cb1c7fb202")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4a2ec8470d07ae3fe2edfa34238e7b6049732bd")]
 [assembly: System.Reflection.AssemblyProductAttribute("AirBnb.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AirBnb.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
